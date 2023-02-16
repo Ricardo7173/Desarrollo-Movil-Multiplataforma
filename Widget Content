@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo Contenedores',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.red,
       ),
       home: Home(), //Se crea una clase nueva
     );
@@ -79,14 +79,6 @@ class Home extends StatelessWidget {
                   child: Container(
                     width: 200,
                     height: 100,
-                    color: Colors.green[100],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Container(
-                    width: 200,
-                    height: 100,
                     color: Colors.blue[100],
                   ),
                 ),
@@ -95,7 +87,15 @@ class Home extends StatelessWidget {
                   child: Container(
                     width: 200,
                     height: 100,
-                    color: Colors.purple,
+                    color: Colors.green[100],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: 200,
+                    height: 100,
+                    color: Colors.pink,
                   ),
                 ),
               ],
@@ -201,42 +201,42 @@ class ContenUno extends StatelessWidget {
           'Cursos de flutter',
           style: TextStyle(
             color: Colors.blueAccent,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           ' Flutter es un SDK de código fuente abierto de desarrollo de aplicaciones móviles creado por Google.',
           style: TextStyle(
             color: Colors.blueGrey,
-            fontSize: 10, //¿Cómo cambiar color?
+            fontSize: 10, 
           ),
         ),
         Text(
           'Cursos de C#',
           style: TextStyle(
             color: Colors.deepPurple,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           'C# es un lenguaje de programación de alto nivel de propósito general que admite múltiples paradigmas.',
           style: TextStyle(
             color: Colors.blueGrey,
-            fontSize: 10, //¿Cómo cambiar color?
+            fontSize: 10, 
           ),
         ),
         Text(
           'Cursos de react native',
           style: TextStyle(
             color: Color.fromARGB(255, 81, 183, 58),
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           'React Native, es un framework de código abierto creado por Meta Platforms',
           style: TextStyle(
             color: Colors.blueGrey,
-            fontSize: 10, //¿Cómo cambiar color?
+            fontSize: 10, 
           ),
         ),
       ]),
@@ -255,35 +255,35 @@ class ContenDos extends StatelessWidget {
           'Un workshop es uno de los múltiples eventos que puede organizar una empresa para formar a sus empleados. La organización de talleres breves se ha convertido en una tendencia en el ámbito empresarial. Estas sesiones complementan otros planes habituales: cursos, actividades de networking, webinars y congresos.',
           style: TextStyle(
             color: Colors.blueAccent,
-            fontSize: 15, //¿Cómo cambiar color?
+            fontSize: 15, 
           ),
         ),
         Text(
           ' *Junior developer',
           style: TextStyle(
             color: Colors.blueGrey,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           '*Testing',
           style: TextStyle(
             color: Colors.deepPurple,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           '*Diseñador',
           style: TextStyle(
             color: Color.fromARGB(255, 81, 183, 58),
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           '*lider de pruebas',
           style: TextStyle(
             color: Color.fromARGB(255, 227, 235, 7),
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
       ]),
@@ -299,38 +299,38 @@ class ContenTres extends StatelessWidget {
     return Container(
       child: Column(children: <Widget>[
         Text(
-          '<--------------------ESPECIALIDADES EN UTNG----------------->',
+          '<ESPECIALIDADES EN UTNG>',
           style: TextStyle(
             color: Colors.blueAccent,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           '*Desarrollo de software multiplataforma',
           style: TextStyle(
             color: Colors.deepPurple,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           '*Administración',
           style: TextStyle(
             color: Color.fromARGB(255, 39, 218, 11),
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
         Text(
           '*Diseño digital',
           style: TextStyle(
             color: Color.fromARGB(255, 31, 14, 166),
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20,
           ),
         ),
         Text(
           '*Procesos industriales',
           style: TextStyle(
             color: Colors.blueGrey,
-            fontSize: 20, //¿Cómo cambiar color?
+            fontSize: 20, 
           ),
         ),
       ]),
