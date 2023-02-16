@@ -1,0 +1,339 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo Contenedores',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.pink,
+      ),
+      home: Home(), //Se crea una clase nueva
+    );
+  }
+}
+
+//Borrar clase MyHomePage y crear Home con st - StatelessWidget
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Image.asset(
+          'assets/images/educacion.png',
+          height: 40.0,
+          width: 40.0,
+        ),
+        actions: <Widget>[
+          Icon(Icons.search),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25.0),
+            child: Icon(Icons.dehaze),
+          )
+        ],
+      ),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              'Continua Estudiando',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 30.0,
+              ),
+            ),
+          ),
+          Container(
+            height: 70,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: 200,
+                    height: 100,
+                    color: Colors.amber,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: 200,
+                    height: 100,
+                    color: Colors.blue[100],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: 200,
+                    height: 100,
+                    color: Colors.green[100],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: 200,
+                    height: 100,
+                    color: Colors.blue[100],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Container(
+                    width: 200,
+                    height: 100,
+                    color: Colors.purple,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ManejoTabs(),
+          //const TabBarDemo(),
+        ],
+      ),
+    );
+  }
+}
+
+class TabBarDemo extends StatelessWidget {
+  const TabBarDemo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+            title: const Text('Tabs Demo'),
+          ),
+          body: const TabBarView(
+            children: [
+              Icon(Icons.directions_car),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ManejoTabs extends StatefulWidget {
+  const ManejoTabs({super.key});
+
+  @override
+  State<ManejoTabs> createState() => _ManejoTabsState();
+}
+
+class _ManejoTabsState extends State<ManejoTabs> with TickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.animateTo(2);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      //color: Colors.blue[100],
+      child: Column(
+        children: <Widget>[
+          DefaultTabController(
+            length: 3,
+            child: TabBar(
+              controller: _tabController,
+              unselectedLabelColor: Colors.grey,
+              indicatorColor: Colors.red,
+              indicator: BoxDecoration(color: Colors.black),
+              tabs: [
+                Tab(text: 'Cursos'),
+                Tab(text: 'Workshops'),
+                Tab(text: 'Especialidades'),
+              ],
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [ContenUno(), ContenDos(), ContenTres()],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ContenUno extends StatelessWidget {
+  const ContenUno({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(children: <Widget>[
+        Text(
+          'Cursos de flutter',
+          style: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          ' Flutter es un SDK de código fuente abierto de desarrollo de aplicaciones móviles creado por Google.',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 10, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          'Cursos de C#',
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          'C# es un lenguaje de programación de alto nivel de propósito general que admite múltiples paradigmas.',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 10, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          'Cursos de react native',
+          style: TextStyle(
+            color: Color.fromARGB(255, 81, 183, 58),
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          'React Native, es un framework de código abierto creado por Meta Platforms',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 10, //¿Cómo cambiar color?
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+class ContenDos extends StatelessWidget {
+  const ContenDos({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(children: <Widget>[
+        Text(
+          'Un workshop es uno de los múltiples eventos que puede organizar una empresa para formar a sus empleados. La organización de talleres breves se ha convertido en una tendencia en el ámbito empresarial. Estas sesiones complementan otros planes habituales: cursos, actividades de networking, webinars y congresos.',
+          style: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 15, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          ' *Junior developer',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*Testing',
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*Diseñador',
+          style: TextStyle(
+            color: Color.fromARGB(255, 81, 183, 58),
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*lider de pruebas',
+          style: TextStyle(
+            color: Color.fromARGB(255, 227, 235, 7),
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+class ContenTres extends StatelessWidget {
+  const ContenTres({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(children: <Widget>[
+        Text(
+          '<--------------------ESPECIALIDADES EN UTNG----------------->',
+          style: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*Desarrollo de software multiplataforma',
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*Administración',
+          style: TextStyle(
+            color: Color.fromARGB(255, 39, 218, 11),
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*Diseño digital',
+          style: TextStyle(
+            color: Color.fromARGB(255, 31, 14, 166),
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+        Text(
+          '*Procesos industriales',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 20, //¿Cómo cambiar color?
+          ),
+        ),
+      ]),
+    );
+  }
+}
